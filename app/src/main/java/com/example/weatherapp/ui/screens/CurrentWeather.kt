@@ -28,7 +28,8 @@ fun CurrentWeather()
     val weather = Weather(
         name="Sun",
         resourceId = R.drawable.sun,
-        temperature = "15" + "\u00B0" + "C"
+        temperature = "15" + "\u00B0" + "C",
+        details = "Feels like 17" + "\u00B0" + "C" + "\n" + "Wind speed = 9mph"
     )
 
     Column(
@@ -46,11 +47,15 @@ fun CurrentWeather()
             style = MaterialTheme.typography.displayLarge)
 
         Spacer(modifier = Modifier
-            .height(10.dp))
+            .height(5.dp))
 
-        Text(text = "Abilities:",
+        Text(weather.temperature,
+            style = MaterialTheme.typography.displaySmall)
+
+        Spacer(modifier = Modifier
+            .height(5.dp))
+
+        Text(text = weather.details,
             style = MaterialTheme.typography.titleLarge)
-
-        Text(weather.temperature)
     }
 }

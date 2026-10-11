@@ -8,5 +8,6 @@ data class Weather (
     val name: String,
     val resourceId: Int,
     //val temperature: Temperature
-    val temperature: String
+    val temperature: String,
+    val details: String
 )

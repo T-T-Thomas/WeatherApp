@@ -2,6 +2,8 @@ package com.example.weatherapp.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CalendarMonth
+import androidx.compose.material.icons.filled.CalendarToday
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -20,6 +22,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -44,13 +47,13 @@ fun Navigation() {
                 title = {
                     when (selectedIndex) {
                         0 -> {
-                            Text("Weather - Current")
+                            Text("Halifax, Nova Scotia", color = Color.Black)
                         }
                         1 -> {
-                            Text("Weather - Forecast")
+                            Text("Halifax, Nova Scotia", color = Color.Black)
                         }
                         else -> {
-                            Text("Weather")
+                            Text("Weather", color = Color.Black)
                         }
                     }
                 }
@@ -62,7 +65,7 @@ fun Navigation() {
                 windowInsets = NavigationBarDefaults.windowInsets)
             {
                 NavigationBarItem(
-                    icon = { Icon(imageVector = Icons.Default.Search, contentDescription = "Current Weather") },
+                    icon = { Icon(imageVector = Icons.Default.CalendarToday, contentDescription = "Current Weather") },
                     label = { Text("Weather") },
                     selected = selectedIndex == 0,
                     onClick = {
@@ -78,7 +81,7 @@ fun Navigation() {
                 )
 
                 NavigationBarItem(
-                    icon = { Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = "Daily Forecast") },
+                    icon = { Icon(imageVector = Icons.Default.CalendarMonth, contentDescription = "Daily Forecast") },
                     label = { Text("Forecast") },
                     selected = selectedIndex == 1,
                     onClick = {
